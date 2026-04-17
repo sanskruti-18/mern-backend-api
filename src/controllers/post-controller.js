@@ -35,60 +35,60 @@ async function createPost(req, res) {
 }
 // GET : /api/v1/posts
 
-// async function getPosts(req, res) {
-//   try {
-//     const posts = await PostService.getPosts();
-//     SuccessResponse.data = posts;
-//     return res.status(StatusCodes.OK).json(SuccessResponse);
-//   } catch (error) {
-//     console.log(
-//       "This is controller error for getting all the airplane" + error
-//     );
-//     ErrorResponse.error = error;
-//     return res.status(error.statusCode).json(ErrorResponse);
-//   }
-// }
-// // GET : /api/v1/posts/:id
-// // This is for deleting the Airplane
-// async function destroyPost(req, res) {
-//   try {
-//     const posts = await PostService.destroyPost(req.params.id);
-//     SuccessResponse.data = posts;
-//     return res.status(StatusCodes.OK).json(SuccessResponse);
-//   } catch (error) {
-//     console.log("This is controller error for deleting a airplane" + error);
-//     ErrorResponse.error = error;
-//     return res.status(error.statusCode).json(ErrorResponse);
-//   }
-// }
-// // PUT : /api/v1/posts/:id
-// async function updatePost(req, res) {
-//   try {
-//     const post = await PostService.updatePost(req.params.id, {
-//       title: req.body.title,
-//       content: req.body.content,
-//       author: req.body.author,
-//     });
+async function getPosts(req, res) {
+  try {
+    const posts = await PostService.getPosts();
+    SuccessResponse.data = posts;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    console.log(
+      "This is controller error for getting all the airplane" + error
+    );
+    ErrorResponse.error = error;
+    return res.status(error.statusCode).json(ErrorResponse);
+  }
+}
+// GET : /api/v1/posts/:id
+// This is for deleting the Airplane
+async function destroyPost(req, res) {
+  try {
+    const posts = await PostService.destroyPost(req.params.id);
+    SuccessResponse.data = posts;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    console.log("This is controller error for deleting a airplane" + error);
+    ErrorResponse.error = error;
+    return res.status(error.statusCode).json(ErrorResponse);
+  }
+}
+// PUT : /api/v1/posts/:id
+async function updatePost(req, res) {
+  try {
+    const post = await PostService.updatePost(req.params.id, {
+      title: req.body.title,
+      content: req.body.content,
+      author: req.body.author,
+    });
 
-//     SuccessResponse.data = post;
-//     return res.status(StatusCodes.OK).json(SuccessResponse);
-//   } catch (error) {
-//     console.log("This is controller error for updating a post:", error);
+    SuccessResponse.data = post;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    console.log("This is controller error for updating a post:", error);
 
-//     // Properly set the error structure
-//     ErrorResponse.error = {
-//       name: error.errorname || "InternalServerError",
-//       explanation: error.explanation || error.message,
-//       statusCode: error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
-//     };
+    // Properly set the error structure
+    ErrorResponse.error = {
+      name: error.errorname || "InternalServerError",
+      explanation: error.explanation || error.message,
+      statusCode: error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
+    };
 
-//     return res.status(ErrorResponse.error.statusCode).json(ErrorResponse);
-//   }
-// }
+    return res.status(ErrorResponse.error.statusCode).json(ErrorResponse);
+  }
+}
 
 module.exports = {
   createPost,
-//   getPosts,
-//   destroyPost,
-//   updatePost,
+  getPosts,
+  destroyPost,
+  updatePost,
 };

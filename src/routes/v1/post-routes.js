@@ -15,9 +15,9 @@ router.post(
   PostController.createPost
 );
 // /api/v1/posts This is a GET request
-// router.get("/", PostController.getPosts);
-// // /api/v1/posts/:id This is a DELETE request for deleting a post
-// router.delete("/:id", PostController.destroyPost);
-// router.put("/:id",PostController.updatePost)
+router.get("/", PostController.getPosts);
+// /api/v1/posts/:id This is a DELETE request for deleting a post
+router.delete("/:id", PostController.destroyPost);
+router.put("/:id",PostController.updatePost)
 
 module.exports = router;
